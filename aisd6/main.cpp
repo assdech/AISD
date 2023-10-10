@@ -62,6 +62,8 @@ int main()
         Second_M.initMatrix();
         First_M.ShowResult();
         Second_M.ShowResult();
+
+        //printf("|%d|\n",(First_M * Second_M).Mat[0][0]);
         (First_M * Second_M).ShowResult();
         break;
     }
