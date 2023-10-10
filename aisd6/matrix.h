@@ -6,7 +6,7 @@ class TMatrix
 public:
     TMatrix(const TMatrix  &);
     TMatrix(int, int);
-    TMatrix(int);
+
     TMatrix operator *(const int size_m);
     TMatrix operator *(const TMatrix &);
     TMatrix operator =(const TMatrix &);
@@ -20,7 +20,6 @@ public:
     void initMatrix();
     void SetZero();
     long long** Mat;
-    int size = col;
     int col;
     int str;
 };

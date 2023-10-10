@@ -39,7 +39,7 @@ int main()
                 time += (double) (_end - _start)/1000;
             }
             int n = pow(2,i);
-            printf("%1d) str = %4d; time = %f;\n",i-5,n,time/50);
+            printf("%1d) str = %4d; time = %f;\n",i-5,n,time);
         }
         break;
     }
@@ -55,15 +55,12 @@ int main()
         cout << "number of columns of the second matrix: ";
         cin >> col2;
         TMatrix First_M(str1,col1);
-        First_M.size = col1;
         First_M.initMatrix();
         TMatrix Second_M(col1,col2);
-        Second_M.size = col2;
         Second_M.initMatrix();
         First_M.ShowResult();
         Second_M.ShowResult();
 
-        //printf("|%d|\n",(First_M * Second_M).Mat[0][0]);
         (First_M * Second_M).ShowResult();
         break;
     }

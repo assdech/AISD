@@ -22,13 +22,6 @@ TMatrix::TMatrix(int a,int b)
     }
 }
 
-TMatrix::TMatrix(int size)
-{
-    this->size = size;
-    str = size;
-    col = size;
-    Mat = new long long*[size];
-}
 
 TMatrix::TMatrix(const TMatrix  &a)
 {
@@ -84,25 +77,22 @@ TMatrix TMatrix::operator * (const int number)
 
 TMatrix TMatrix::operator * (const TMatrix &a)
 {
-    TMatrix result(size);
+    TMatrix result(str,a.col);
     long long *row;
 
-    for(int i = 0; i < size; i++)
+    for(int i = 0; i < str; i++)
     {
-        row = new long long[size];
-        for(int i=0; i<size;i++) row[i] = 0;
+        row = new long long[a.col];
+        for(int z=0; z<a.col;z++) row[z] = 0;
 
-        for (int k = 0; k < size; k++)
+        for (int k = 0; k < col; k++)
         {
-            for (int s = 0; s < size; s++)
+            for (int s = 0; s < a.col; s++)
             {
                 row[s] += this->Mat[i][k] * a.Mat[k][s];
             }
         }
-        printf("|%d|\n",row[0]);
         result.Mat[i] = row;
-        printf("|%d|\n",result.Mat[i][0]);
-        printf("delete |%d|\n",result.Mat[i][0]);
     }
     return result;
 }
