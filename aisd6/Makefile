@@ -330,6 +330,7 @@ Makefile: MulStrMat.pro ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/win32-g++
 		../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/qt_config.prf \
 		../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/win32-g++/qmake.conf \
 		../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/exclusive_builds.prf \
 		../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/toolchain.prf \
 		../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/default_pre.prf \
@@ -355,7 +356,6 @@ Makefile: MulStrMat.pro ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/win32-g++
 		../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/lex.prf \
 		MulStrMat.pro \
 		../../MyApplications/Qt/6.5.2/mingw_64/lib/Qt6Core.prl \
-		.qmake.stash \
 		../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/build_pass.prf
 	$(QMAKE) -o Makefile MulStrMat.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
 ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/spec_pre.prf:
@@ -618,6 +618,7 @@ Makefile: MulStrMat.pro ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/win32-g++
 ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/qt_config.prf:
 ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/win32-g++/qmake.conf:
 ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/exclusive_builds.prf:
 ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/toolchain.prf:
 ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/default_pre.prf:
@@ -643,7 +644,6 @@ Makefile: MulStrMat.pro ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/win32-g++
 ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/lex.prf:
 MulStrMat.pro:
 ../../MyApplications/Qt/6.5.2/mingw_64/lib/Qt6Core.prl:
-.qmake.stash:
 ../../MyApplications/Qt/6.5.2/mingw_64/mkspecs/features/build_pass.prf:
 qmake: FORCE
 	@$(QMAKE) -o Makefile MulStrMat.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"

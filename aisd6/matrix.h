@@ -5,13 +5,17 @@ class TMatrix
 {
 public:
     TMatrix(const TMatrix  &);
+    TMatrix(long long, const TMatrix  &);
     TMatrix(int, int);
 
-    TMatrix operator *(const int size_m);
+    ~TMatrix();
+
+    TMatrix operator *(const long long size_m);
     TMatrix operator *(const TMatrix &);
     TMatrix operator =(const TMatrix &);
     TMatrix operator -(const TMatrix &);
     TMatrix operator +(const TMatrix &);
+
     int selsubmatrix(int,int);
     void wrmattofile();
     void rematfromfile();
@@ -19,6 +23,7 @@ public:
     void deleteMatrix();
     void initMatrix();
     void SetZero();
+
     long long** Mat;
     int col;
     int str;

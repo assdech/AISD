@@ -31,7 +31,7 @@ int main()
             double time = 0;
             TMatrix First_M(pow(2,i),pow(2,i));
             TMatrix Second_M(pow(2,i),pow(2,i));
-            for(int j=0;j<10;j++)
+            for(int j=0;j<1;j++)
             {
                 _start = clock();
                 (First_M * Second_M);
@@ -76,6 +76,7 @@ int main()
         cin >> val;
         TMatrix First_M(str,col);
         First_M.initMatrix();
+        First_M.ShowResult();
         (First_M * val).ShowResult();
         break;
     }
@@ -91,6 +92,8 @@ int main()
         First_M.initMatrix();
         TMatrix Second_M(str,col);
         Second_M.initMatrix();
+        First_M.ShowResult();
+        Second_M.ShowResult();
         (First_M + Second_M).ShowResult();
         break;
     }
@@ -106,6 +109,8 @@ int main()
         First_M.initMatrix();
         TMatrix Second_M(str,col);
         Second_M.initMatrix();
+        First_M.ShowResult();
+        Second_M.ShowResult();
         (First_M - Second_M).ShowResult();
         break;
     }
@@ -127,6 +132,7 @@ int main()
         cin >> coldel;
         if(coldel <= 0) cout << "Error";
         if(First_M.selsubmatrix(strdel,coldel) != 0) cout << "Error";
+        break;
     }
     case 7:
     {
@@ -139,6 +145,7 @@ int main()
         TMatrix First_M(str,col);
         First_M.initMatrix();
         First_M.wrmattofile();
+        break;
     }
 
     case 8:
@@ -151,6 +158,7 @@ int main()
         TMatrix First_M(str,col);
         First_M.rematfromfile();
         First_M.ShowResult();
+        break;
     }
     case 0:
     {

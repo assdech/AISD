@@ -38,6 +38,25 @@ TMatrix::TMatrix(const TMatrix  &a)
     }
 }
 
+TMatrix::TMatrix(long long numstr, const TMatrix  &a)
+{
+    str = 1;
+    col = a.col;
+    Mat = new long long*[1];
+    Mat[0] = new long long[col];
+
+    for(int i=0; i<col;i++) Mat[0][i] = a.Mat[numstr][i];
+}
+
+TMatrix::~TMatrix() {
+    if(Mat != nullptr)
+    {
+        for(int i=0;i<str;i++) delete[] Mat[i];
+        delete[] Mat;
+        Mat = nullptr;
+    }
+}
+
 void TMatrix::initMatrix()
 {
     for(int i = 0; i < str; i++)
@@ -61,7 +80,7 @@ void TMatrix::ShowResult()
     cout<<"\n";
 }
 
-TMatrix TMatrix::operator * (const int number)
+TMatrix TMatrix::operator * (const long long number)
 {
     TMatrix mtrx1(str,col);
     for(int i = 0; i < str; i++)
@@ -78,21 +97,17 @@ TMatrix TMatrix::operator * (const int number)
 TMatrix TMatrix::operator * (const TMatrix &a)
 {
     TMatrix result(str,a.col);
-    long long *row;
+    TMatrix row(1,a.col);
 
     for(int i = 0; i < str; i++)
     {
-        row = new long long[a.col];
-        for(int z=0; z<a.col;z++) row[z] = 0;
-
-        for (int k = 0; k < col; k++)
+        row.SetZero();
+        for (long long k = 0; k < col; k++)
         {
-            for (int s = 0; s < a.col; s++)
-            {
-                row[s] += this->Mat[i][k] * a.Mat[k][s];
-            }
+            TMatrix test(k,a);
+            row = row + (test * Mat[i][k]);
         }
-        result.Mat[i] = row;
+        for(int s=0;s<a.col;s++) result.Mat[i][s] = row.Mat[0][s];
     }
     return result;
 }
@@ -104,7 +119,7 @@ TMatrix TMatrix::operator =(const TMatrix &a)
     {
         for(int j = 0; j < col; j++)
         {
-            mtrx3.Mat[i][j] = a.Mat[i][j];
+            Mat[i][j] = a.Mat[i][j];
         }
     }
     return mtrx3;
@@ -140,6 +155,7 @@ int TMatrix::selsubmatrix(int strdel,int coldel)
 {
     if(str < strdel || col < coldel) return 1;
     TMatrix mtrx6(strdel,coldel);
+    if(strdel < 1 || coldel < 1) return 0;
     int strmas[strdel];
     int colmas[coldel];
     cout << "write the row numbers in ascending order: ";
